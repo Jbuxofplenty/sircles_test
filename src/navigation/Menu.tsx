@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import { Animated, Linking, StyleSheet } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 import {
   useDrawerStatus,
   createDrawerNavigator,
@@ -76,67 +77,69 @@ const DrawerContent = (
   // screen list for Drawer menu
   const screens = 
   [
-    {name: 'Home', to: 'Home', icon: icons.articles},
+    {name: 'Home', to: 'Home', icon: icons.home},
   ];
 
   return (
-    <DrawerContentScrollView
-      {...props}
-      scrollEnabled
-      removeClippedSubviews
-      renderToHardwareTextureAndroid
-      contentContainerStyle={{paddingBottom: sizes.padding}}>
-      <Block paddingHorizontal={sizes.padding}>
-        <Block flex={0} row align="center" marginTop={sizes.l}>
-          <Block>
-            <Text size={18} semibold>
-              {'Mobile Test'}
-            </Text>
-          </Block>
-        </Block>
-
-        {screens?.map((screen, index) => {
-          return (
-            <Button
-              row
-              justify="flex-start"
-              marginBottom={sizes.s}
-              key={`menu-screen-${screen.name}-${index}`}
-              onPress={() => handleNavigation(screen.to)}>
-              <Block
-                flex={0}
-                radius={6}
-                align="center"
-                justify="center"
-                width={sizes.md}
-                height={sizes.md}
-                marginRight={sizes.s}
-                gradient={gradients['primary']}>
-                <Image
-                  radius={0}
-                  width={14}
-                  height={14}
-                  source={screen.icon}
-                  color={colors['white']}
-                />
-              </Block>
-              <Text p semibold color={labelColor}>
-                {screen.name}
+    <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={{flex: 1}}>
+      <DrawerContentScrollView
+        {...props}
+        scrollEnabled
+        removeClippedSubviews
+        renderToHardwareTextureAndroid
+        contentContainerStyle={{paddingBottom: sizes.padding}}>
+        <Block paddingHorizontal={sizes.padding}>
+          <Block flex={0} row align="center" marginTop={sizes.l}>
+            <Block>
+              <Text size={18} semibold white>
+                {'Sircles Test'}
               </Text>
-            </Button>
-          );
-        })}
+            </Block>
+          </Block>
 
-        <Block
-          flex={0}
-          height={1}
-          marginRight={sizes.md}
-          marginVertical={sizes.sm}
-          gradient={gradients.menu}
-        />
+          {screens?.map((screen, index) => {
+            return (
+              <Button
+                row
+                justify="flex-start"
+                marginBottom={sizes.s}
+                key={`menu-screen-${screen.name}-${index}`}
+                onPress={() => handleNavigation(screen.to)}>
+                <Block
+                  flex={0}
+                  radius={6}
+                  align="center"
+                  justify="center"
+                  width={sizes.md}
+                  height={sizes.md}
+                  marginRight={sizes.s}
+                  gradient={gradients['primary']}>
+                  <Image
+                    radius={0}
+                    width={14}
+                    height={14}
+                    source={screen.icon}
+                    color={colors['white']}
+                  />
+                </Block>
+                <Text p semibold white>
+                  {screen.name}
+                </Text>
+              </Button>
+            );
+          })}
 
-      </Block>
-    </DrawerContentScrollView>
+          <Block
+            flex={0}
+            height={1}
+            marginRight={sizes.md}
+            marginVertical={sizes.sm}
+            gradient={gradients.menu}
+          />
+
+        </Block>
+      </DrawerContentScrollView>
+    </LinearGradient>
   );
 };
 
@@ -145,27 +148,29 @@ export default (props) => {
   const { gradients } = useTheme();
 
   return (
-    <Block gradient={gradients.light}>
-      <Drawer.Navigator
-        drawerContent={(props) => <DrawerContent {...props} />}
-        backBehavior={"history"}
-        screenOptions={{
-          headerShown: false,
-          overlayColor: "transparent",
-          sceneContainerStyle: {
-            backgroundColor: 'transparent'
-          },
-          drawerStyle: {
-            flex: 1,
-            width: '60%',
-            borderRightWidth: 0,
-            backgroundColor: 'transparent',
-          }
-        }}>
-        <Drawer.Screen name="Screens">
-          {props => <ScreensStack />}
-        </Drawer.Screen>
-      </Drawer.Navigator>
-    </Block>
+    <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={{flex: 1}}>
+      <Block gradient={gradients.light}>
+        <Drawer.Navigator
+          drawerContent={(props) => <DrawerContent {...props} />}
+          backBehavior={"history"}
+          screenOptions={{
+            headerShown: false,
+            overlayColor: "transparent",
+            sceneContainerStyle: {
+              backgroundColor: 'transparent'
+            },
+            drawerStyle: {
+              flex: 1,
+              width: '60%',
+              borderRightWidth: 0,
+              backgroundColor: 'white',
+            }
+          }}>
+          <Drawer.Screen name="Screens">
+            {props => <ScreensStack />}
+          </Drawer.Screen>
+        </Drawer.Navigator>
+      </Block>
+    </LinearGradient>
   );
 };
