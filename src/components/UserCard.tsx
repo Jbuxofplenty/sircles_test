@@ -21,7 +21,10 @@ const UserCard = ({ user, index }: {user: IUser, index: number}) => {
   }
   const gradient = gradientList[index % Object.keys(gradientList).length];
 
-  const CARD_WIDTH = (sizes.width - sizes.padding * 2 - sizes.sm) / 2;
+  const landscape = sizes.height < sizes.width;
+  const CARD_WIDTH_LANDSCAPE = (sizes.width - sizes.padding * 2 - sizes.sm * 4) / 4;
+  const CARD_WIDTH_PORTRAIT = (sizes.width - sizes.md * 2) / 2;
+  const CARD_WIDTH = landscape ? CARD_WIDTH_LANDSCAPE : CARD_WIDTH_PORTRAIT;
   
   const navigate = () => {
     navigation.navigate('User', {user: {...user}, index: index});
@@ -35,12 +38,13 @@ const UserCard = ({ user, index }: {user: IUser, index: number}) => {
         row
         marginBottom={sizes.sm}
         width={CARD_WIDTH * 2 + sizes.sm}
+        marginHorizontal={sizes.sm}
         black
         gradient={gradient}>
         <Block
           paddingTop={sizes.s}
           justify="space-between"
-          paddingLeft={sizes.sm}
+          paddingHorizontal={sizes.sm}
           paddingBottom={sizes.s}>
           <Text
             h4
