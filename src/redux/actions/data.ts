@@ -5,35 +5,30 @@ import {
   DATA_UPDATE_USERS,
 } from '../constants/data';
 
+import { IUser } from '../../constants';
+
+const baseUrl = 'https://jsonplaceholder.typicode.com';
+
 export const updateUsers = (users) => ({
   type: DATA_UPDATE_USERS,
   payload: users
 });
 
-export const reset = () => ({
+export const dataReset = () => ({
   type: DATA_RESET,
 });
 
 export const getUserData = () => {
-  return function(dispatch) {
-    console.log('getting user data') 
-    // let url = baseUrl + '/scale/getCurrentWeight';
-    // console.log(url, macAddress)
-    // let data = { macAddress };
-    // let deviceConnected = await axios({
-    //   method: 'post',
-    //   url,
-    //   data,
-    //   responseType: 'text'
-    // })
-    // .then(function (response) {
-    //   console.log(response.data);
-    //   return true;
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    //   return false;
-    // });
-    // return deviceConnected;
+  return async function(dispatch) {
+    let url = baseUrl + '/users';
+    await axios.get<IUser[]>(url)
+      .then(function (response) {
+        if(response.data && response.data.length) dispatch(updateUsers(response.data));
+        return true;
+      })
+      .catch((error) => {
+        console.error(error);
+        return false;
+      });
   };
 }

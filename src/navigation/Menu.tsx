@@ -65,8 +65,7 @@ const DrawerContent = (
   props: DrawerContentComponentProps,
 ) => {
   const { navigation } = props;
-  const {icons, assets, colors, gradients, sizes} = useTheme();
-  const labelColor = colors.text;
+  const {icons, colors, gradients, sizes} = useTheme();
   const handleNavigation = useCallback(
     (to) => {
       navigation.navigate(to);
@@ -81,7 +80,7 @@ const DrawerContent = (
   ];
 
   return (
-    <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={{flex: 1}}>
+    <LinearGradient colors={gradients.drawer} style={{flex: 1}}>
       <DrawerContentScrollView
         {...props}
         scrollEnabled
@@ -113,7 +112,7 @@ const DrawerContent = (
                   width={sizes.md}
                   height={sizes.md}
                   marginRight={sizes.s}
-                  gradient={gradients['primary']}>
+                  gradient={gradients.divider}>
                   <Image
                     radius={0}
                     width={14}
@@ -148,7 +147,7 @@ export default (props) => {
   const { gradients } = useTheme();
 
   return (
-    <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={{flex: 1}}>
+    <LinearGradient colors={gradients.drawer} style={{flex: 1}}>
       <Block gradient={gradients.light}>
         <Drawer.Navigator
           drawerContent={(props) => <DrawerContent {...props} />}

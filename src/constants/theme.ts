@@ -7,26 +7,14 @@ import {
   TextStyle,
   Dimensions,
   Platform,
+  LayoutProps,
 } from 'react-native';
 
 // Spacing types
 export interface ISpacing
   extends Pick<
     FlexStyle,
-    | 'margin'
-    | 'marginVertical'
-    | 'marginHorizontal'
-    | 'marginLeft'
-    | 'marginRight'
-    | 'marginTop'
-    | 'marginBottom'
-    | 'padding'
-    | 'paddingVertical'
-    | 'paddingHorizontal'
-    | 'paddingLeft'
-    | 'paddingRight'
-    | 'paddingTop'
-    | 'paddingBottom'
+    LayoutProps
   > {}
 
 export type TWeight =
@@ -113,6 +101,9 @@ export interface ThemeGradients {
   primary?: string[];
   secondary?: string[];
   tertiary?: string[];
+  fourth?: string[];
+  fifth?: string[];
+  sixth?: string[];
   black?: string[];
   white?: string[];
   light?: string[];
@@ -124,6 +115,7 @@ export interface ThemeGradients {
   info?: string[];
   divider?: string[];
   menu?: string[];
+  drawer?: string[];
 }
 
 export interface ThemeSizes {
@@ -252,6 +244,18 @@ export interface ThemeAssets {
   OpenSansSemiBold?: any;
   OpenSansExtraBold?: any;
   OpenSansBold?: any;
+
+  logo: ImageSourcePropType;
+  header: ImageSourcePropType;
+  background: ImageSourcePropType;
+  ios: ImageSourcePropType;
+  android: ImageSourcePropType;
+
+  card1: ImageSourcePropType;
+  card2: ImageSourcePropType;
+  card3: ImageSourcePropType;
+  card4: ImageSourcePropType;
+  card5: ImageSourcePropType;
 }
 
 export interface ThemeFonts {
@@ -313,6 +317,20 @@ export const ASSETS: ThemeAssets = {
   OpenSansSemiBold: require('../assets/fonts/OpenSans-SemiBold.ttf'),
   OpenSansExtraBold: require('../assets/fonts/OpenSans-ExtraBold.ttf'),
   OpenSansBold: require('../assets/fonts/OpenSans-Bold.ttf'),
+
+  // backgrounds/logo
+  logo: require('../assets/images/logo.png'),
+  header: require('../assets/images/header.png'),
+  background: require('../assets/images/background.png'),
+  ios: require('../assets/images/ios.png'),
+  android: require('../assets/images/android.png'),
+
+  // cards
+  card1: require('../assets/images/card1.png'),
+  card2: require('../assets/images/card2.png'),
+  card3: require('../assets/images/card3.png'),
+  card4: require('../assets/images/card4.png'),
+  card5: require('../assets/images/card5.png'),
 };
 
 

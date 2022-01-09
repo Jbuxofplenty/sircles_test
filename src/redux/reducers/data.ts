@@ -3,11 +3,20 @@ import {
   DATA_UPDATE_USERS,
 } from '../constants/data';
 
-const INITIAL_STATE = {
-  users: {},
+import { IUser } from '../../constants';
+
+export interface IDataReducer {
+  /**
+   * Array of users from the test API
+   */
+  users?: IUser[];
+}
+
+const INITIAL_STATE: IDataReducer = {
+  users: [],
 };
 
-export default function (state = INITIAL_STATE, action) {
+export function dataReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case DATA_RESET: {
       return {

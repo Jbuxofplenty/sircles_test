@@ -4,6 +4,7 @@ import Input from './Input';
 import Text from './Text';
 import Image from './Image';
 import UserCard from './UserCard';
+import Divider from './Divider';
 
 export {
   Block,
@@ -12,4 +13,5 @@ export {
   Text,
   Image,
   UserCard,
+  Divider,
 };

@@ -77,12 +77,17 @@ export const COLORS: ThemeColors = {
 };
 
 export const GRADIENTS: ThemeGradients = {
-  primary: ['#FF0080', '#7928CA'],
+  primary: ['#603F8B', '#7928CA'],
   secondary: ['#A8B8D8', '#627594'],
+  tertiary: ['#41729F', '#274472'],
+  fourth: ['#FEDE00', '#C8DF52'],
+  fifth: ['#F0E1DE', '#F7C9B6'],
+  sixth: ['#013A20', '#478C5C'],
   info: ['#21D4FD', '#2152FF'],
   success: ['#98EC2D', '#17AD37'],
   warning: ['#FBCF33', '#F53939'],
   danger: ['#FF667C', '#EA0606'],
+  drawer: ['#1A4314', '#2C5E1A', '#32CD30', '#B2D2A4'],
 
   light: ['#EBEFF4', '#CED4DA'],
   dark: ['#3A416F', '#141727'],

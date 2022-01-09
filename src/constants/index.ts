@@ -2,21 +2,29 @@ export { THEME as light } from './light';
 export * from './components';
 export * from './theme';
 
+export interface IGeo {
+  lat?: string;
+  lng?: string;
+}
 export interface IAddress {
   street?: string;
   suite?: string;
   city?: string;
-  zipCode?: number;
-  address?: string;
+  zipcode?: number;
+  geo?: IGeo;
+}
+export interface ICompany {
+  bs?: string;
+  catchPhrase?: string;
+  name?: string;
 }
 
 export interface IUser {
-  firstName?: string;
-  lastName?: string;
-  userName?: string;
-  emailAddress?: string;
+  name?: string;
+  username?: string;
+  email?: string;
   address?: IAddress;
-  phoneNumber?: string;
+  phone?: string;
   website?: string;
-  companyName?: string;
+  company?: ICompany;
 }

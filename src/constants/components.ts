@@ -14,6 +14,7 @@ import {
   TouchableOpacityProps,
   ViewProps,
   ViewStyle,
+  LayoutProps,
 } from 'react-native';
 import { ISpacing, ITheme } from './theme';
 

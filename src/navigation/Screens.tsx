@@ -1,7 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home } from '../screens';
+import { Home, User } from '../screens';
 import { useScreenOptions } from '../hooks';
 
 const Stack = createStackNavigator();
@@ -15,6 +15,12 @@ export default () => {
         name="Home"
         component={Home}
         options={{title: 'Home'}}
+      />
+
+      <Stack.Screen
+        name="User"
+        component={User}
+        options={{headerShown: false}}
       />
       
     </Stack.Navigator>
